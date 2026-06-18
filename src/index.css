@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-navy-950: #020d22;
+  --color-navy-900: #03112e;
+  --color-navy-800: #071a3e;
+  --color-navy-700: #0a2252;
+  --color-blue-brand: #2e6cf5;
+  --color-blue-light: #5b9bf8;
+  --color-blue-soft: #a5c8ff;
+  --radius-card: 1.25rem;
+  --radius-card-lg: 1.75rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #020d22;
+  color: #e0eaff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+#root {
+  width: 100%;
+}
+
+/* ─── Scrollbar ─────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #020d22; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2e6cf5, #5b9bf8);
+  border-radius: 999px;
+}
+
+::selection {
+  background: rgba(46, 108, 245, 0.35);
+  color: #fff;
+}
+
+/* ─── Glass card ────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.glass:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ─── Gradient text ─────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(130deg, #5b9bf8 0%, #a5c8ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Shimmer name ──────────────────────────────── */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #ffffff  0%,
+    #c8deff 25%,
+    #5b9bf8 50%,
+    #c8deff 75%,
+    #ffffff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to   { background-position:  200% center; }
+}
+
+/* ─── Cursor hide on touch ──────────────────────── */
+@media (max-width: 768px) {
+  body { cursor: auto; }
+  .custom-cursor,
+  .custom-cursor-ring { display: none !important; }
+}
